@@ -1,0 +1,44 @@
+Jenkins is automation CI/CD tool used to automate building, testing, and deploying applications.
+
+sudo apt update
+sudo apt install openjdk-21-jdk -y
+
+sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key
+
+echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+sudo apt update
+sudo apt install jenkins -y
+sudo apt-get install docker.io -y
+
+sudo usermod -a -G docker jenkins
+sudo systemctl restart docker
+sudo systemctl restart jenkins
+
+sudo 	cat past Jenkins required path then paste password
+
+allowed port 8080 for default port of Jenkins
+
+then name your project like node-todo-app and select freestyle project then ok
+
+create ssh key then entre 3 times
+ssh-keygen
+cd .ssh
+
+cat pub-key copied and past on GitHub repo setting (ssh-key)
+cat private key copied into Jenkins in project configuration.
+
+If permission failed to use this command -- sudo visudo
+and past on end of the file this--- jenkins ALL=(ALL) NOPASSWD: /usr/bin/apt, /usr/bin/apt-get
+
+
+git clone https://github.com/junaidtyagi9555/Docker-Projects.git
+
+
+docker stop node-todo-app || true
+docker rm node-todo-app || true
+docker build  -t node-app .
+docker run -d --name node-todo-app -p 8000:8000 node-app
