@@ -57,7 +57,7 @@ docker run -d --name node-todo-app -p 8000:8000 node-app
 | Description | Screenshot |
 |--------------|-------------|
 | jenkins(build) | ![jenkins build](jenkins(build).jpg) |
-| Jenkins(Execute shell) | ![Jenkins](Jenkins(Execute shell).jpg) |
+| Jenkins(Execute shell) | ![Jenkins](Execute shell.jpg) |
 | Final Website Result | ![Website Result](auto-build(result).jpg) |
 
 ---
